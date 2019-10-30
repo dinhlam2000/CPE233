@@ -17,8 +17,18 @@ int main()
 
 	int decimalArray [5];	
 	DEC_to_BCD(decimalArray, d);
-	printf("The digits are 1s:%d, 10s:%d, 100s:%d, 1000s:%d, 10000s:%d", decimalArray[0], decimalArray[1], decimalArray[2], decimalArray[3], decimalArray[4]);
+	printf("The digits are 1s:%d, 10s:%d, 100s:%d, 1000s:%d, 10000s:%d \n", decimalArray[0], decimalArray[1], decimalArray[2], decimalArray[3], decimalArray[4]);
 	
+	printf("Please enter 8 numbers to sort: \n");
+	int bubbleArray [8];
+	for (int a = 0; a <8; a++)
+		{
+			int value;
+			scanf("%d", &value);
+			bubbleArray[a] = value;
+		}
+    bubbleSort(bubbleArray,8);
+	printf("Your sorted array is: %d, %d, %d, %d, %d, %d, %d, %d ", bubbleArray[0], bubbleArray[1], bubbleArray[2], bubbleArray[3], bubbleArray[4], bubbleArray[5], bubbleArray[6], bubbleArray[7]);
 	return 0;
 	
 
@@ -68,5 +78,21 @@ void DEC_to_BCD (int arr[], int num)
 
 void bubbleSort (int arr[], int size)
 {
-	
+    int temp;
+    int begin = 0;
+    for (int end = size - 1; end >= 0; end --)
+        {
+            begin = 0;
+            for (int i = 0; i < end; i++)
+            {
+                if (arr[begin] > arr[begin + 1])
+                {
+                    temp = arr[begin];
+                    arr[begin] = arr[begin + 1];
+                    arr[begin+1] = temp;
+                }
+                begin = begin + 1;
+            }
+            
+        }
 }
